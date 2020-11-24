@@ -2,7 +2,10 @@ import asyncHandler from 'express-async-handler';
 import bunyan from 'bunyan';
 const logger = bunyan.createLogger({ name: 'User Controller' });
 import UserModel from '../models/UserModel.js';
-import { generateToken } from '../custom_modules/index.js';
+import {
+  generateToken,
+  InvalidCredentialsError,
+} from '../custom_modules/index.js';
 
 // @desc        Get user dashboard
 // @route       GET /api/users/dashboard
@@ -117,7 +120,7 @@ export const authUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401);
-    throw new Error('Invalid credentials');
+    throw new InvalidCredentialsError('Login Failed', 'Invalid credentials');
   }
 });
 
