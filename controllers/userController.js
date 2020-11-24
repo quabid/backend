@@ -4,10 +4,6 @@ const logger = bunyan.createLogger({ name: 'User Controller' });
 import UserModel from '../models/UserModel.js';
 import { generateToken } from '../custom_modules/index.js';
 
-import * as Msg from '../custom_modules/Message.js';
-import { cap } from '../custom_modules/Capper.js';
-import { stringify } from '../custom_modules/ObjectUtils.js';
-
 // @desc        Get user dashboard
 // @route       GET /api/users/dashboard
 // @access      Private

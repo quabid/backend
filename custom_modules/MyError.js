@@ -42,3 +42,10 @@ export class FileExistError extends PropertyRequiredError {
     this.property = filePath;
   }
 }
+
+export class InvalidCredentialsError extends CustomError {
+  constructor(message, cause = 'Bad credentials') {
+    super(message, cause);
+    this.name = 'InvalidCredentailError';
+  }
+}
